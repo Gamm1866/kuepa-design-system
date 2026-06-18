@@ -1,0 +1,1 @@
+import{j as n}from"./index-BBwQ-p2R.js";import{I as t}from"./iconComponent-DiVqBPNu.js";const c=a=>n.jsxs("div",{className:"corner-alert dsk-padding-3 ",children:[n.jsx("p",{className:"dsk-text-caption-s",children:a.text}),n.jsx(t,{icon:a.iconData.iconName,variant:a.iconData.iconVariant,size:a.iconData.size,color:a.iconData.color})]});export{c as C};

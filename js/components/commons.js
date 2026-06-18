@@ -1,0 +1,1 @@
+const n="Ket2024*A",e={password:n},t=e,r=t==null?void 0:t.password,a=s=>{const o=Array.from({length:s},()=>Math.random().toString(16).slice(-4));return"".concat(o.join(""))},i=()=>{const s=sessionStorage.getItem("login-session");return r===atob(s)};export{r as e,a as g,i as v};

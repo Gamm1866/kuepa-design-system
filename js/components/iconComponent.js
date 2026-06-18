@@ -1,0 +1,1 @@
+import{j as e}from"./index-BBwQ-p2R.js";const t=a=>e.jsx("span",{style:{fontSize:a.size,color:a.color,width:a.size,height:a.size},className:`${a.className??a.className} material-icons${a.variant?`-${a.variant}`:""}`,children:a.icon});export{t as I};
