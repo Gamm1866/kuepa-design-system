@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kuepa Design System</title>
+  <link rel="stylesheet" href="../tokens/tokens.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Poppins', -apple-system, sans-serif;
+      background: var(--background-secondary);
+      color: var(--text-primary);
+      padding: 40px 24px;
+    }
+    h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; }
+    h2 { font-size: 1.25rem; font-weight: 600; margin: 40px 0 16px; border-bottom: 1px solid var(--border-primary); padding-bottom: 8px; }
+    h3 { font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-secondary); margin-bottom: 12px; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .subtitle { color: var(--text-secondary); margin-bottom: 48px; }
+
+    /* COLOR PALETTES */
+    .palette-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+    .palette { background: var(--background-primary); border-radius: 12px; overflow: hidden; border: 1px solid var(--border-primary); }
+    .palette-name { padding: 12px 16px; font-weight: 600; font-size: 0.875rem; border-bottom: 1px solid var(--border-primary); }
+    .swatch-row { display: flex; }
+    .swatch {
+      flex: 1;
+      height: 48px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 4px;
+      font-size: 9px;
+      font-weight: 600;
+      transition: flex 0.2s;
+    }
+    .swatch:hover { flex: 2; }
+    .swatch span { background: rgba(255,255,255,0.8); padding: 1px 3px; border-radius: 2px; color: #292929; }
+
+    /* SEMANTIC TOKENS */
+    .token-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+    .token-card { background: var(--background-primary); border: 1px solid var(--border-primary); border-radius: 8px; overflow: hidden; }
+    .token-swatch { height: 56px; }
+    .token-info { padding: 8px 12px; }
+    .token-name { font-size: 0.75rem; font-weight: 600; font-family: monospace; color: var(--text-primary); }
+    .token-value { font-size: 0.7rem; color: var(--text-secondary); margin-top: 2px; }
+
+    /* SPACING */
+    .spacing-list { display: flex; flex-direction: column; gap: 8px; }
+    .spacing-item { display: flex; align-items: center; gap: 16px; background: var(--background-primary); border: 1px solid var(--border-primary); border-radius: 8px; padding: 12px 16px; }
+    .spacing-bar { background: var(--alliance-primary); height: 16px; border-radius: 4px; }
+    .spacing-label { font-family: monospace; font-size: 0.8rem; min-width: 110px; color: var(--text-secondary); }
+    .spacing-px { font-size: 0.8rem; font-weight: 600; }
+
+    /* TYPOGRAPHY */
+    .type-list { background: var(--background-primary); border: 1px solid var(--border-primary); border-radius: 12px; overflow: hidden; }
+    .type-item { padding: 16px 20px; border-bottom: 1px solid var(--border-primary); display: flex; align-items: baseline; gap: 16px; }
+    .type-item:last-child { border-bottom: none; }
+    .type-label { font-family: monospace; font-size: 0.7rem; color: var(--text-secondary); min-width: 140px; }
+
+    /* GRADIENTS */
+    .gradient-list { display: flex; gap: 16px; flex-wrap: wrap; }
+    .gradient-card { flex: 1; min-width: 200px; height: 80px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 0.875rem; }
+
+    /* STATES */
+    .state-list { display: flex; gap: 12px; flex-wrap: wrap; }
+    .state-chip { display: flex; align-items: center; gap: 8px; background: var(--background-primary); border: 1px solid var(--border-primary); border-radius: 8px; padding: 8px 16px; }
+    .state-dot { width: 14px; height: 14px; border-radius: 50%; }
+
+    /* SHADOWS */
+    .shadow-list { display: flex; gap: 20px; flex-wrap: wrap; }
+    .shadow-card { background: var(--background-primary); border-radius: 12px; width: 140px; height: 100px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 600; }
+    .shadow-strong { box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+    .shadow-medium { box-shadow: 0 4px 12px rgba(0,0,0,0.12); }
+    .shadow-light { box-shadow: 0 2px 6px rgba(0,0,0,0.07); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Kuepa Design System</h1>
+    <p class="subtitle">146 design tokens · 404 utility classes · Prefix: <code>dsk-</code></p>
+
+    <!-- COLOR PALETTES -->
+    <h2>Color Palettes</h2>
+    <div class="palette-grid">
+
+      <div class="palette">
+        <div class="palette-name">Orange (Brand)</div>
+        <div class="swatch-row">
+          <div class="swatch" style="background:#FFEEE5"><span>50</span></div>
+          <div class="swatch" style="background:#FEC5B5"><span>100</span></div>
+          <div class="swatch" style="background:#FDA890"><span>200</span></div>
+          <div class="swatch" style="background:#FC8A6A"><span>300</span></div>
+          <div class="swatch" style="background:#FC6D45"><span>400</span></div>
+          <div class="swatch" style="background:#FB5020"><span>500</span></div>
+          <div class="swatch" style="background:#D1431B"><span>600</span></div>
+          <div class="swatch" style="background:#A73515"><span>700</span></div>
+          <div class="swatch" style="background:#7E2810"><span>800</span></div>
+          <div class="swatch" style="background:#541B0B"><span>900</span></div>
+        </div>
+      </div>
+
+      <div class="palette">
+        <div class="palette-name">Gray</div>
+        <div class="swatch-row">
+          <div class="swatch" style="background:#F3F4F4"><span>50</span></div>
+          <div class="swatch" style="background:#F0F1F2"><span>100</span></div>
+          <div class="swatch" style="background:#CFCFCF"><span>200</span></div>
+          <div class="swatch" style="background:#AFB1B2"><span>300</span></div>
+          <div class="swatch" style="background:#999B9D"><span>400</span></div>
+          <div class="swatch" style="background:#848788"><span>500</span></div>
+          <div class="swatch" style="background:#707274"><span>600</span></div>
+          <div class="swatch" style="background:#5C5F60"><span>700</span></div>
+          <div class="swatch" style="background:#4A4C4D"><span>800</span></div>
+          <div class="swatch" style="background:#38393A"><span>900</span></div>
+        </div>
+      </div>
+
+      <div class="palette">
+        <div class="palette-name">Green</div>
+        <div class="swatch-row">
+          <div class="swatch" style="background:#D3E7DC"><span>50</span></div>
+          <div class="swatch" style="background:#B1DDC5"><span>100</span></div>
+          <div class="swatch" style="background:#8ACCA9"><span>200</span></div>
+          <div class="swatch" style="background:#62BA8C"><span>300</span></div>
+          <div class="swatch" style="background:#3BA96F"><span>400</span></div>
+          <div class="swatch" style="background:#149852"><span>500</span></div>
+          <div class="swatch" style="background:#117F44"><span>600</span></div>
+          <div class="swatch" style="background:#0D6537"><span>700</span></div>
+          <div class="swatch" style="background:#0A4C29"><span>800</span></div>
+          <div class="swatch" style="background:#07331B"><span>900</span></div>
+        </div>
+      </div>
+
+      <div class="palette">
+        <div class="palette-name">Jungle</div>
+        <div class="swatch-row">
+          <div class="swatch" style="background:#E8F7F2"><span>50</span></div>
+          <div class="swatch" style="background:#C0EFE4"><span>100</span></div>
+          <div class="swatch" style="background:#A0E7D6"><span>200</span></div>
+          <div class="swatch" style="background:#80DEC8"><span>300</span></div>
+          <div class="swatch" style="background:#61D6BB"><span>400</span></div>
+          <div class="swatch" style="background:#41CEAD"><span>500</span></div>
+          <div class="swatch" style="background:#36AC90"><span>600</span></div>
+          <div class="swatch" style="background:#2B8973"><span>700</span></div>
+          <div class="swatch" style="background:#216757"><span>800</span></div>
+          <div class="swatch" style="background:#16453A"><span>900</span></div>
+        </div>
+      </div>
+
+      <div class="palette">
+        <div class="palette-name">Navy</div>
+        <div class="swatch-row">
+          <div class="swatch" style="background:#EDF5FB"><span>50</span></div>
+          <div class="swatch" style="background:#C8E0F4"><span>100</span></div>
+          <div class="swatch" style="background:#A2CCEA"><span>200</span></div>
+          <div class="swatch" style="background:#7DB7DF"><span>300</span></div>
+          <div class="swatch" style="background:#59A3D0"><span>400</span></div>
+          <div class="swatch" style="background:#338EBF"><span>500</span></div>
+          <div class="swatch" style="background:#007AAA"><span>600</span></div>
+          <div class="swatch" style="background:#006692"><span>700</span></div>
+          <div class="swatch" style="background:#005277"><span>800</span></div>
+          <div class="swatch" style="background:#003E5B"><span>900</span></div>
+        </div>
+      </div>
+
+      <div class="palette">
+        <div class="palette-name">Sky</div>
+        <div class="swatch-row">
+          <div class="swatch" style="background:#DEF5FF"><span>50</span></div>
+          <div class="swatch" style="background:#B4E8FE"><span>100</span></div>
+          <div class="swatch" style="background:#8FDDFE"><span>200</span></div>
+          <div class="swatch" style="background:#6AD2FD"><span>300</span></div>
+          <div class="swatch" style="background:#44C6FD"><span>400</span></div>
+          <div class="swatch" style="background:#1FBBFC"><span>500</span></div>
+          <div class="swatch" style="background:#1A9CD2"><span>600</span></div>
+          <div class="swatch" style="background:#157DA8"><span>700</span></div>
+          <div class="swatch" style="background:#105E7E"><span>800</span></div>
+          <div class="swatch" style="background:#003E5B"><span>900</span></div>
+        </div>
+      </div>
+
+      <div class="palette">
+        <div class="palette-name">Yellow</div>
+        <div class="swatch-row">
+          <div class="swatch" style="background:#FCF3DA"><span>50</span></div>
+          <div class="swatch" style="background:#F8E4AC"><span>100</span></div>
+          <div class="swatch" style="background:#F5D683"><span>200</span></div>
+          <div class="swatch" style="background:#F1C85A"><span>300</span></div>
+          <div class="swatch" style="background:#EEBB30"><span>400</span></div>
+          <div class="swatch" style="background:#EAAD07"><span>500</span></div>
+          <div class="swatch" style="background:#C39006"><span>600</span></div>
+          <div class="swatch" style="background:#9C7305"><span>700</span></div>
+          <div class="swatch" style="background:#755704"><span>800</span></div>
+          <div class="swatch" style="background:#4E3A02"><span>900</span></div>
+        </div>
+      </div>
+
+      <div class="palette">
+        <div class="palette-name">Red</div>
+        <div class="swatch-row">
+          <div class="swatch" style="background:#F6E0DC"><span>50</span></div>
+          <div class="swatch" style="background:#EBB9B0"><span>100</span></div>
+          <div class="swatch" style="background:#E19789"><span>200</span></div>
+          <div class="swatch" style="background:#D77462"><span>300</span></div>
+          <div class="swatch" style="background:#CD513A"><span>400</span></div>
+          <div class="swatch" style="background:#C32E13"><span>500</span></div>
+          <div class="swatch" style="background:#A32610"><span>600</span></div>
+          <div class="swatch" style="background:#821F0D"><span>700</span></div>
+          <div class="swatch" style="background:#62170A"><span>800</span></div>
+          <div class="swatch" style="background:#410F06"><span>900</span></div>
+        </div>
+      </div>
+
+      <div class="palette">
+        <div class="palette-name">Pink</div>
+        <div class="swatch-row">
+          <div class="swatch" style="background:#FFECF9"><span>50</span></div>
+          <div class="swatch" style="background:#FFDFF5"><span>100</span></div>
+          <div class="swatch" style="background:#FFCFF0"><span>200</span></div>
+          <div class="swatch" style="background:#FEBFEB"><span>300</span></div>
+          <div class="swatch" style="background:#FEAFE6"><span>400</span></div>
+          <div class="swatch" style="background:#FE9FE1"><span>500</span></div>
+          <div class="swatch" style="background:#D485BC"><span>600</span></div>
+          <div class="swatch" style="background:#A96A96"><span>700</span></div>
+          <div class="swatch" style="background:#7F5071"><span>800</span></div>
+          <div class="swatch" style="background:#55354B"><span>900</span></div>
+        </div>
+      </div>
+
+      <div class="palette">
+        <div class="palette-name">Violet</div>
+        <div class="swatch-row">
+          <div class="swatch" style="background:#F0DFF5"><span>50</span></div>
+          <div class="swatch" style="background:#DCB6E8"><span>100</span></div>
+          <div class="swatch" style="background:#CB92DC"><span>200</span></div>
+          <div class="swatch" style="background:#BA6ED0"><span>300</span></div>
+          <div class="swatch" style="background:#A849C5"><span>400</span></div>
+          <div class="swatch" style="background:#9725B9"><span>500</span></div>
+          <div class="swatch" style="background:#7E1F9A"><span>600</span></div>
+          <div class="swatch" style="background:#65197B"><span>700</span></div>
+          <div class="swatch" style="background:#4C135D"><span>800</span></div>
+          <div class="swatch" style="background:#320C3E"><span>900</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEMANTIC TOKENS -->
+    <h2>Semantic Tokens</h2>
+
+    <h3>Brand</h3>
+    <div class="token-grid" style="margin-bottom: 24px;">
+      <div class="token-card">
+        <div class="token-swatch" style="background: linear-gradient(90deg, #FE8C00 0%, #F83600 100%);"></div>
+        <div class="token-info"><div class="token-name">--gradient-1</div><div class="token-value">linear-gradient(90deg, #FE8C00, #F83600)</div></div>
+      </div>
+      <div class="token-card">
+        <div class="token-swatch" style="background:#FD531E;"></div>
+        <div class="token-info"><div class="token-name">--alliance-primary</div><div class="token-value">#FD531E</div></div>
+      </div>
+      <div class="token-card">
+        <div class="token-swatch" style="background:#292929;"></div>
+        <div class="token-info"><div class="token-name">--alliance-secondary</div><div class="token-value">#292929</div></div>
+      </div>
+    </div>
+
+    <h3>States</h3>
+    <div class="state-list" style="margin-bottom: 24px;">
+      <div class="state-chip"><div class="state-dot" style="background:#0ABF6B"></div><span>success — #0ABF6B</span></div>
+      <div class="state-chip"><div class="state-dot" style="background:#FACC15"></div><span>warning — #FACC15</span></div>
+      <div class="state-chip"><div class="state-dot" style="background:#DA313D"></div><span>danger — #DA313D</span></div>
+    </div>
+
+    <h3>Text</h3>
+    <div class="token-grid" style="margin-bottom: 24px;">
+      <div class="token-card"><div class="token-swatch" style="background:#292929"></div><div class="token-info"><div class="token-name">--text-primary</div><div class="token-value">#292929</div></div></div>
+      <div class="token-card"><div class="token-swatch" style="background:#848788"></div><div class="token-info"><div class="token-name">--text-secondary</div><div class="token-value">#848788</div></div></div>
+      <div class="token-card"><div class="token-swatch" style="background:#CFCFCF"></div><div class="token-info"><div class="token-name">--text-disabled</div><div class="token-value">#CFCFCF</div></div></div>
+      <div class="token-card"><div class="token-swatch" style="background:#AFB1B2"></div><div class="token-info"><div class="token-name">--text-placeholder</div><div class="token-value">#AFB1B2</div></div></div>
+      <div class="token-card"><div class="token-swatch" style="background:#CD513A"></div><div class="token-info"><div class="token-name">--text-error</div><div class="token-value">#CD513A</div></div></div>
+    </div>
+
+    <!-- SPACING -->
+    <h2>Spacing Scale</h2>
+    <div class="spacing-list">
+      <div class="spacing-item"><div class="spacing-label"><code>--spacing-1</code></div><div class="spacing-bar" style="width:2px"></div><div class="spacing-px">2px</div></div>
+      <div class="spacing-item"><div class="spacing-label"><code>--spacing-2</code></div><div class="spacing-bar" style="width:4px"></div><div class="spacing-px">4px</div></div>
+      <div class="spacing-item"><div class="spacing-label"><code>--spacing-3</code></div><div class="spacing-bar" style="width:8px"></div><div class="spacing-px">8px</div></div>
+      <div class="spacing-item"><div class="spacing-label"><code>--spacing-4</code></div><div class="spacing-bar" style="width:12px"></div><div class="spacing-px">12px</div></div>
+      <div class="spacing-item"><div class="spacing-label"><code>--spacing-5</code></div><div class="spacing-bar" style="width:16px"></div><div class="spacing-px">16px</div></div>
+      <div class="spacing-item"><div class="spacing-label"><code>--spacing-6</code></div><div class="spacing-bar" style="width:24px"></div><div class="spacing-px">24px</div></div>
+      <div class="spacing-item"><div class="spacing-label"><code>--spacing-7</code></div><div class="spacing-bar" style="width:32px"></div><div class="spacing-px">32px</div></div>
+      <div class="spacing-item"><div class="spacing-label"><code>--spacing-8</code></div><div class="spacing-bar" style="width:40px"></div><div class="spacing-px">40px</div></div>
+      <div class="spacing-item"><div class="spacing-label"><code>--spacing-9</code></div><div class="spacing-bar" style="width:48px"></div><div class="spacing-px">48px</div></div>
+      <div class="spacing-item"><div class="spacing-label"><code>--spacing-10</code></div><div class="spacing-bar" style="width:64px"></div><div class="spacing-px">64px</div></div>
+      <div class="spacing-item"><div class="spacing-label"><code>--spacing-11</code></div><div class="spacing-bar" style="width:80px"></div><div class="spacing-px">80px</div></div>
+      <div class="spacing-item"><div class="spacing-label"><code>--spacing-12</code></div><div class="spacing-bar" style="width:96px"></div><div class="spacing-px">96px</div></div>
+      <div class="spacing-item"><div class="spacing-label"><code>--spacing-13</code></div><div class="spacing-bar" style="width:160px"></div><div class="spacing-px">160px</div></div>
+    </div>
+
+    <!-- TYPOGRAPHY -->
+    <h2>Typography Scale</h2>
+    <div class="type-list">
+      <div class="type-item"><div class="type-label">dsk-text-display-lg</div><span style="font-size:3rem;font-weight:700;line-height:1.1">Display Large</span></div>
+      <div class="type-item"><div class="type-label">dsk-text-display-m</div><span style="font-size:2.25rem;font-weight:700;line-height:1.2">Display Medium</span></div>
+      <div class="type-item"><div class="type-label">dsk-text-display-s</div><span style="font-size:1.75rem;font-weight:700;line-height:1.2">Display Small</span></div>
+      <div class="type-item"><div class="type-label">dsk-text-heading-xl</div><span style="font-size:1.5rem;font-weight:600;line-height:1.3">Heading XL</span></div>
+      <div class="type-item"><div class="type-label">dsk-text-heading-lg</div><span style="font-size:1.25rem;font-weight:600;line-height:1.3">Heading Large</span></div>
+      <div class="type-item"><div class="type-label">dsk-text-heading-m</div><span style="font-size:1rem;font-weight:600;line-height:1.4">Heading Medium</span></div>
+      <div class="type-item"><div class="type-label">dsk-text-body-lg</div><span style="font-size:1rem;font-weight:400;line-height:1.6">Body Large — lorem ipsum dolor sit amet</span></div>
+      <div class="type-item"><div class="type-label">dsk-text-body-m</div><span style="font-size:0.875rem;font-weight:400;line-height:1.6">Body Medium — lorem ipsum dolor sit amet</span></div>
+      <div class="type-item"><div class="type-label">dsk-text-body-s</div><span style="font-size:0.75rem;font-weight:400;line-height:1.6">Body Small — lorem ipsum dolor sit amet</span></div>
+      <div class="type-item"><div class="type-label">dsk-text-label-lg</div><span style="font-size:0.875rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em">Label Large</span></div>
+      <div class="type-item"><div class="type-label">dsk-text-label-m</div><span style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em">Label Medium</span></div>
+    </div>
+
+    <!-- SHADOWS -->
+    <h2>Shadows</h2>
+    <div class="shadow-list">
+      <div class="shadow-card shadow-strong">Strong</div>
+      <div class="shadow-card shadow-medium">Medium</div>
+      <div class="shadow-card shadow-light">Light</div>
+    </div>
+
+    <!-- UTILITY SUMMARY -->
+    <h2>Utility Classes Summary</h2>
+    <div style="background:var(--background-primary);border:1px solid var(--border-primary);border-radius:12px;padding:24px;">
+      <p style="margin-bottom:16px;color:var(--text-secondary)">Todas las clases usan el prefijo <code>dsk-</code></p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;">
+        <div><strong>background</strong> — 27 clases</div>
+        <div><strong>border</strong> — 27 clases</div>
+        <div><strong>color</strong> — 27 clases</div>
+        <div><strong>text / typography</strong> — 106 clases</div>
+        <div><strong>flex / direction / align</strong> — 75 clases</div>
+        <div><strong>grid / col</strong> — 17 clases</div>
+        <div><strong>padding / margin</strong> — 14 clases</div>
+        <div><strong>gap / spacing</strong> — 3 clases</div>
+        <div><strong>shadow</strong> — 3 clases</div>
+        <div><strong>Responsive (m/s/lg/xl)</strong> — 92 clases</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
