@@ -5,10 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kuepa Design System</title>
   <link rel="stylesheet" href="../tokens/tokens.css" />
+  <link rel="stylesheet" href="../css/components/input.css" />
+  <link rel="stylesheet" href="../css/components/inputText.css" />
+  <link rel="stylesheet" href="../css/components/inputRadio.css" />
+  <link rel="stylesheet" href="../css/components/inputSelect.css" />
+  <link rel="stylesheet" href="../css/components/inputDate.css" />
+  <link rel="stylesheet" href="../css/components/inputAudio.css" />
+  <link rel="stylesheet" href="../css/components/toast.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Poppins', -apple-system, sans-serif;
+      font-family: 'Barlow', -apple-system, sans-serif;
       background: var(--background-secondary);
       color: var(--text-primary);
       padding: 40px 24px;
@@ -323,6 +334,202 @@
       <div class="shadow-card shadow-light">Light</div>
     </div>
 
+    <!-- INPUTS -->
+    <h2>Inputs</h2>
+
+    <h3>Text Input</h3>
+    <div style="display:flex;flex-direction:column;gap:16px;max-width:480px;margin-bottom:32px;">
+      <div class="dsk-input-group">
+        <label class="label-input">Label</label>
+        <div class="dsk-input-container">
+          <input class="input-component size-s" type="text" placeholder="Small (32px)" />
+        </div>
+      </div>
+      <div class="dsk-input-group">
+        <label class="label-input">Label</label>
+        <div class="dsk-input-container">
+          <input class="input-component size-m" type="text" placeholder="Medium (40px)" />
+        </div>
+        <span class="aux-text" style="font-size:12px;color:var(--text-secondary)">Texto auxiliar de apoyo</span>
+      </div>
+      <div class="dsk-input-group">
+        <label class="label-input">Label</label>
+        <div class="dsk-input-container">
+          <input class="input-component size-lg" type="text" placeholder="Large (48px)" />
+        </div>
+      </div>
+      <div class="dsk-input-group">
+        <label class="label-input">Deshabilitado</label>
+        <div class="dsk-input-container">
+          <input class="input-component size-m" type="text" placeholder="Disabled" disabled />
+        </div>
+      </div>
+    </div>
+
+    <h3>Textarea</h3>
+    <div style="max-width:480px;margin-bottom:32px;">
+      <div class="dsk-input-group">
+        <label class="label-input">Descripción</label>
+        <div class="dsk-input-container">
+          <textarea class="text-area-component" placeholder="Escribe aquí..."></textarea>
+        </div>
+      </div>
+    </div>
+
+    <h3>Radio Input</h3>
+    <div style="max-width:480px;margin-bottom:32px;">
+      <div class="dsk-input-group">
+        <label class="label-input">Selecciona una opción</label>
+        <div class="input-radio-container">
+          <div class="option-item">
+            <div class="radio-input">
+              <input type="radio" id="r1" name="demo" />
+              <label for="r1"></label>
+            </div>
+            <p style="font-size:14px">Opción A</p>
+          </div>
+          <div class="option-item">
+            <div class="radio-input">
+              <input type="radio" id="r2" name="demo" checked />
+              <label for="r2"></label>
+            </div>
+            <p style="font-size:14px">Opción B</p>
+          </div>
+          <div class="option-item">
+            <div class="radio-input">
+              <input type="radio" id="r3" name="demo" />
+              <label for="r3"></label>
+            </div>
+            <p style="font-size:14px">Opción C</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Select Input</h3>
+    <div style="max-width:480px;margin-bottom:32px;">
+      <div class="dsk-input-group">
+        <label class="label-input">Categoría</label>
+        <div class="selector-container" id="demo-select">
+          <div class="selector-toggle size-m" tabindex="0" onclick="toggleSelect(this)">
+            <div class="value-container">
+              <span class="simple-value" style="font-size:14px;color:var(--text-placeholder)">Selecciona una opción</span>
+            </div>
+            <div class="toggle-icon">
+              <span class="material-icons-outlined" style="font-size:20px">expand_more</span>
+            </div>
+          </div>
+          <div class="options-container" style="display:none">
+            <ul class="options-list">
+              <li class="option-item" style="font-size:14px" onclick="selectOption(this,'Diseño')">Diseño</li>
+              <li class="option-item" style="font-size:14px" onclick="selectOption(this,'Tecnología')">Tecnología</li>
+              <li class="option-item" style="font-size:14px" onclick="selectOption(this,'Marketing')">Marketing</li>
+              <li class="option-item" style="font-size:14px" onclick="selectOption(this,'Producto')">Producto</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Audio Input</h3>
+    <div style="max-width:480px;margin-bottom:48px;">
+      <div id="audio-demo" class="dsk-audio-input">
+        <div class="dsk-wave-point"></div>
+        <div class="dsk-audio-wave">
+          <svg viewBox="0 0 200 32" width="100%" height="32" preserveAspectRatio="none">
+            <rect class="dsk-wave-bar dsk-wave-bar--0" x="10"  y="12" width="4" height="8"  rx="2" fill="var(--gray-300)" />
+            <rect class="dsk-wave-bar dsk-wave-bar--1" x="22"  y="8"  width="4" height="16" rx="2" fill="var(--gray-300)" />
+            <rect class="dsk-wave-bar dsk-wave-bar--2" x="34"  y="4"  width="4" height="24" rx="2" fill="var(--gray-300)" />
+            <rect class="dsk-wave-bar dsk-wave-bar--3" x="46"  y="8"  width="4" height="16" rx="2" fill="var(--gray-300)" />
+            <rect class="dsk-wave-bar dsk-wave-bar--4" x="58"  y="12" width="4" height="8"  rx="2" fill="var(--gray-300)" />
+          </svg>
+        </div>
+        <div class="dsk-audio-controls">
+          <button class="dsk-audio-btn" onclick="toggleRecording()" id="rec-btn" title="Grabar">
+            <span class="material-icons-outlined" style="font-size:18px">mic</span>
+          </button>
+          <button class="dsk-audio-btn" title="Enviar">
+            <span class="material-icons-outlined" style="font-size:18px">send</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOAST / SNACKBAR -->
+    <h2>Toast / Snackbar</h2>
+    <p style="color:var(--text-secondary);font-size:14px;margin-bottom:24px;">5 tipos × 3 variantes de layout. Clase base: <code>.dsk-toast</code> + modificador de tipo.</p>
+
+    <h3>Solo texto</h3>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:32px;">
+      <div class="dsk-toast dsk-toast--success">
+        <span class="dsk-toast__icon">check_circle</span>
+        <div class="dsk-toast__body"><p class="dsk-toast__text">Los cambios se guardaron correctamente.</p></div>
+        <button class="dsk-toast__close">close</button>
+      </div>
+      <div class="dsk-toast dsk-toast--info">
+        <span class="dsk-toast__icon">info</span>
+        <div class="dsk-toast__body"><p class="dsk-toast__text">Tienes una nueva notificación pendiente.</p></div>
+        <button class="dsk-toast__close">close</button>
+      </div>
+      <div class="dsk-toast dsk-toast--alert">
+        <span class="dsk-toast__icon">warning</span>
+        <div class="dsk-toast__body"><p class="dsk-toast__text">El archivo supera el límite de tamaño permitido.</p></div>
+        <button class="dsk-toast__close">close</button>
+      </div>
+      <div class="dsk-toast dsk-toast--danger">
+        <span class="dsk-toast__icon">error</span>
+        <div class="dsk-toast__body"><p class="dsk-toast__text">No se pudo completar la acción. Intenta de nuevo.</p></div>
+        <button class="dsk-toast__close">close</button>
+      </div>
+      <div class="dsk-toast dsk-toast--default">
+        <span class="dsk-toast__icon">notifications</span>
+        <div class="dsk-toast__body"><p class="dsk-toast__text">Mensaje informativo sin categoría específica.</p></div>
+        <button class="dsk-toast__close">close</button>
+      </div>
+    </div>
+
+    <h3>Título + Texto</h3>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:32px;">
+      <div class="dsk-toast dsk-toast--success">
+        <span class="dsk-toast__icon">check_circle</span>
+        <div class="dsk-toast__body">
+          <p class="dsk-toast__title">¡Guardado exitosamente!</p>
+          <p class="dsk-toast__text">Los cambios en tu perfil fueron aplicados.</p>
+        </div>
+        <button class="dsk-toast__close">close</button>
+      </div>
+      <div class="dsk-toast dsk-toast--danger">
+        <span class="dsk-toast__icon">error</span>
+        <div class="dsk-toast__body">
+          <p class="dsk-toast__title">Error al enviar</p>
+          <p class="dsk-toast__text">Verifica tu conexión e intenta nuevamente.</p>
+        </div>
+        <button class="dsk-toast__close">close</button>
+      </div>
+    </div>
+
+    <h3>Título + Botón + Texto</h3>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:48px;">
+      <div class="dsk-toast dsk-toast--info">
+        <span class="dsk-toast__icon">info</span>
+        <div class="dsk-toast__body">
+          <p class="dsk-toast__title">Nueva versión disponible</p>
+          <button class="dsk-toast__action">Actualizar ahora</button>
+          <p class="dsk-toast__text">La versión 2.4.0 incluye mejoras de rendimiento.</p>
+        </div>
+        <button class="dsk-toast__close">close</button>
+      </div>
+      <div class="dsk-toast dsk-toast--alert">
+        <span class="dsk-toast__icon">warning</span>
+        <div class="dsk-toast__body">
+          <p class="dsk-toast__title">Sesión por expirar</p>
+          <button class="dsk-toast__action">Mantener sesión</button>
+          <p class="dsk-toast__text">Tu sesión expirará en 5 minutos por inactividad.</p>
+        </div>
+        <button class="dsk-toast__close">close</button>
+      </div>
+    </div>
+
     <!-- UTILITY SUMMARY -->
     <h2>Utility Classes Summary</h2>
     <div style="background:var(--background-primary);border:1px solid var(--border-primary);border-radius:12px;padding:24px;">
@@ -341,5 +548,49 @@
       </div>
     </div>
   </div>
+
+  <script>
+    /* Select demo */
+    function toggleSelect(toggle) {
+      const opts = toggle.nextElementSibling;
+      const isOpen = opts.style.display !== 'none';
+      opts.style.display = isOpen ? 'none' : 'block';
+      toggle.classList.toggle('focus', !isOpen);
+    }
+    function selectOption(li, value) {
+      const toggle = li.closest('.selector-container').querySelector('.selector-toggle');
+      toggle.querySelector('.simple-value').textContent = value;
+      toggle.querySelector('.simple-value').style.color = 'var(--text-primary)';
+      li.closest('.options-container').style.display = 'none';
+      toggle.classList.remove('focus');
+    }
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.selector-container')) {
+        document.querySelectorAll('.options-container').forEach(o => o.style.display = 'none');
+        document.querySelectorAll('.selector-toggle').forEach(t => t.classList.remove('focus'));
+      }
+    });
+
+    /* Toast close */
+    document.addEventListener('click', (e) => {
+      if (e.target.classList.contains('dsk-toast__close')) {
+        e.target.closest('.dsk-toast').style.display = 'none';
+      }
+    });
+
+    /* Audio recording toggle */
+    let recording = false;
+    function toggleRecording() {
+      recording = !recording;
+      const el = document.getElementById('audio-demo');
+      const btn = document.getElementById('rec-btn');
+      el.classList.toggle('dsk-audio-input--recording', recording);
+      btn.querySelector('span').textContent = recording ? 'stop' : 'mic';
+      btn.classList.toggle('record-btn', recording);
+      el.querySelectorAll('.dsk-wave-bar').forEach(b => {
+        b.setAttribute('fill', recording ? 'var(--alliance-primary)' : 'var(--gray-300)');
+      });
+    }
+  </script>
 </body>
 </html>

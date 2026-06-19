@@ -1,0 +1,168 @@
+/* ===================================
+   TOAST / SNACKBAR
+   Fuente: Figma node 3076:4265
+   5 tipos × 3 variantes de layout
+   =================================== */
+
+.dsk-toast {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-4);
+  width: 416px;
+  max-width: 100%;
+  padding: var(--spacing-5);
+  border-radius: var(--spacing-3);
+  border-left: 4px solid transparent;
+  background: var(--white);
+  box-shadow: 4px 8px 16px rgba(41, 41, 41, 0.12);
+  font-family: 'Nunito', sans-serif;
+  position: relative;
+}
+
+/* ---- Tipos ---- */
+.dsk-toast--success {
+  background: var(--green-50);
+  border-left-color: var(--green-700);
+}
+
+.dsk-toast--info {
+  background: var(--sky-50);
+  border-left-color: var(--sky-600);
+}
+
+.dsk-toast--alert {
+  background: var(--yellow-50);
+  border-left-color: var(--yellow-600);
+}
+
+.dsk-toast--danger {
+  background: var(--red-50);
+  border-left-color: var(--red-600);
+}
+
+.dsk-toast--default {
+  background: var(--gray-50);
+  border-left-color: var(--gray-500);
+}
+
+/* ---- Ícono ---- */
+.dsk-toast__icon {
+  font-family: 'Material Icons Outlined';
+  font-size: 20px;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.dsk-toast--success .dsk-toast__icon { color: var(--green-700); }
+.dsk-toast--info    .dsk-toast__icon { color: var(--sky-600); }
+.dsk-toast--alert   .dsk-toast__icon { color: var(--yellow-600); }
+.dsk-toast--danger  .dsk-toast__icon { color: var(--red-600); }
+.dsk-toast--default .dsk-toast__icon { color: var(--gray-500); }
+
+/* ---- Cuerpo ---- */
+.dsk-toast__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  min-width: 0;
+}
+
+.dsk-toast__title {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  color: var(--text-primary);
+}
+
+.dsk-toast__text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--text-secondary);
+}
+
+/* ---- Botón de acción ---- */
+.dsk-toast__action {
+  display: inline-flex;
+  align-items: center;
+  margin-top: var(--spacing-2);
+  padding: var(--spacing-2) var(--spacing-4);
+  border-radius: var(--spacing-2);
+  border: 1px solid currentColor;
+  background: transparent;
+  font-family: 'Barlow', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+  width: fit-content;
+}
+
+.dsk-toast--success .dsk-toast__action { color: var(--green-700); }
+.dsk-toast--success .dsk-toast__action:hover { background: rgba(21, 128, 61, 0.08); }
+
+.dsk-toast--info    .dsk-toast__action { color: var(--sky-600); }
+.dsk-toast--info    .dsk-toast__action:hover { background: rgba(2, 132, 199, 0.08); }
+
+.dsk-toast--alert   .dsk-toast__action { color: var(--yellow-600); }
+.dsk-toast--alert   .dsk-toast__action:hover { background: rgba(202, 138, 4, 0.08); }
+
+.dsk-toast--danger  .dsk-toast__action { color: var(--red-600); }
+.dsk-toast--danger  .dsk-toast__action:hover { background: rgba(220, 38, 38, 0.08); }
+
+.dsk-toast--default .dsk-toast__action { color: var(--gray-700); }
+.dsk-toast--default .dsk-toast__action:hover { background: rgba(55, 65, 81, 0.08); }
+
+/* ---- Botón cerrar ---- */
+.dsk-toast__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+  color: var(--text-secondary);
+  font-family: 'Material Icons Outlined';
+  font-size: 18px;
+  line-height: 1;
+  border-radius: 4px;
+  transition: background 0.15s;
+}
+
+.dsk-toast__close:hover { background: rgba(0, 0, 0, 0.06); }
+
+/* ---- Variantes de layout ---- */
+/* only-text: sin título, sin botón — solo .dsk-toast__text */
+/* title+text: .dsk-toast__title + .dsk-toast__text */
+/* title+button+text: .dsk-toast__title + .dsk-toast__action + .dsk-toast__text */
+
+/* ---- Contenedor stack ---- */
+.dsk-toast-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  position: fixed;
+  z-index: 9000;
+}
+
+.dsk-toast-stack--top-right    { top: var(--spacing-7); right: var(--spacing-7); }
+.dsk-toast-stack--top-left     { top: var(--spacing-7); left: var(--spacing-7); }
+.dsk-toast-stack--bottom-right { bottom: var(--spacing-7); right: var(--spacing-7); }
+.dsk-toast-stack--bottom-left  { bottom: var(--spacing-7); left: var(--spacing-7); }
+.dsk-toast-stack--top-center   { top: var(--spacing-7); left: 50%; transform: translateX(-50%); }
+.dsk-toast-stack--bottom-center{ bottom: var(--spacing-7); left: 50%; transform: translateX(-50%); }
+
+/* ---- Animación de entrada ---- */
+@keyframes dsk-toast-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.dsk-toast {
+  animation: dsk-toast-in 0.2s var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1)) both;
+}

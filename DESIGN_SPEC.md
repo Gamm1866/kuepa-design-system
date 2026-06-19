@@ -18,8 +18,7 @@
 ## FUENTES
 
 ```css
-/* Cargar siempre estas 4 fuentes */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+/* Cargar siempre estas 3 fuentes */
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined');
@@ -27,8 +26,7 @@
 
 | Fuente | Uso |
 |--------|-----|
-| **Poppins** | Tipografía base del sistema, headings, display |
-| **Barlow** | Labels, inputs, header, código |
+| **Barlow** | Tipografía base del sistema, headings, display, labels, UI |
 | **Nunito** | Texto de cuerpo, descripciones |
 | **Material Icons** | Iconografía (clases: `material-icons`, `material-icons-outline`) |
 

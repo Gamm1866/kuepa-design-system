@@ -1,0 +1,115 @@
+/* ===================================
+   INPUT — Audio recorder
+   Fuente: core/dsk/components/atoms/input/inputTypes/audio/AudioInput.scss
+   =================================== */
+
+.dsk-audio-input {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  height: 64px;
+  padding: 0 var(--spacing-5);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--spacing-3);
+  background: transparent;
+}
+
+/* Punto indicador de grabación */
+.dsk-audio-input .dsk-wave-point {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--alliance-primary);
+  flex-shrink: 0;
+}
+
+/* Contenedor de la onda */
+.dsk-audio-input .dsk-audio-wave {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+}
+
+.dsk-audio-input .dsk-audio-wave-line {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Dot deslizante sobre la onda */
+.dsk-audio-input .dsk-wave-dot {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--alliance-primary);
+  pointer-events: none;
+  transition: left 0.08s linear;
+  z-index: 2;
+}
+
+/* Barra de onda */
+.dsk-audio-input .dsk-wave-bar {
+  transition: fill 0.1s ease;
+}
+
+/* Animación ecualizador */
+@keyframes dskWavePulse {
+  0%, 100% { transform: scaleY(1); }
+  50%       { transform: scaleY(2.5); }
+}
+
+.dsk-audio-input .dsk-wave-bar--0,
+.dsk-audio-input .dsk-wave-bar--1,
+.dsk-audio-input .dsk-wave-bar--2,
+.dsk-audio-input .dsk-wave-bar--3,
+.dsk-audio-input .dsk-wave-bar--4 {
+  animation: none;
+}
+
+/* Estado activo de grabación */
+.dsk-audio-input.dsk-audio-input--recording .dsk-wave-bar--0 { animation: dskWavePulse 0.6s ease-in-out infinite; transform-origin: center; animation-delay: 0s; }
+.dsk-audio-input.dsk-audio-input--recording .dsk-wave-bar--1 { animation: dskWavePulse 0.6s ease-in-out infinite; transform-origin: center; animation-delay: 0.12s; }
+.dsk-audio-input.dsk-audio-input--recording .dsk-wave-bar--2 { animation: dskWavePulse 0.6s ease-in-out infinite; transform-origin: center; animation-delay: 0.24s; }
+.dsk-audio-input.dsk-audio-input--recording .dsk-wave-bar--3 { animation: dskWavePulse 0.6s ease-in-out infinite; transform-origin: center; animation-delay: 0.36s; }
+.dsk-audio-input.dsk-audio-input--recording .dsk-wave-bar--4 { animation: dskWavePulse 0.6s ease-in-out infinite; transform-origin: center; animation-delay: 0.48s; }
+
+/* Botones de control de audio */
+.dsk-audio-input .dsk-audio-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  flex-shrink: 0;
+}
+
+.dsk-audio-input .dsk-audio-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background: var(--gray-100);
+  color: var(--text-primary);
+  transition: background 0.15s;
+}
+
+.dsk-audio-input .dsk-audio-btn:hover { background: var(--gray-200); }
+
+.dsk-audio-input .dsk-audio-btn.record-btn {
+  background: var(--alliance-primary);
+  color: var(--white);
+}
+
+.dsk-audio-input .dsk-audio-btn.record-btn:hover { background: var(--orange-600); }
+
+.dsk-audio-input .dsk-audio-btn:disabled {
+  background: var(--gray-100);
+  color: var(--text-disabled);
+  cursor: not-allowed;
+}

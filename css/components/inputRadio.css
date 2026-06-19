@@ -1,0 +1,75 @@
+/* ===================================
+   INPUT — Radio
+   Fuente: core/dsk/components/atoms/input/inputTypes/radio/RadioInput.scss
+   =================================== */
+
+.dsk-input-group .input-radio-container {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-5);
+}
+
+.dsk-input-group .input-radio-container .option-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.dsk-input-group .input-radio-container .option-item .radio-input {
+  display: flex;
+  width: 14px;
+  height: 14px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dsk-input-group .input-radio-container .option-item .radio-input input[type="radio"] {
+  display: none;
+}
+
+.dsk-input-group .input-radio-container .option-item .radio-input label {
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid var(--gray-500);
+  border-radius: 50%;
+  margin: 0;
+  position: relative;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.dsk-input-group .input-radio-container .option-item .radio-input label::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.dsk-input-group .input-radio-container .option-item .radio-input input[type="radio"]:checked + label {
+  border-color: var(--alliance-primary);
+}
+
+.dsk-input-group .input-radio-container .option-item .radio-input input[type="radio"]:checked + label::before {
+  background-color: var(--alliance-primary);
+}
+
+/* Disabled */
+.dsk-input-group .input-radio-container.disabled .option-item {
+  cursor: no-drop;
+}
+
+.dsk-input-group .input-radio-container.disabled .option-item p {
+  color: var(--text-disabled);
+}
+
+.dsk-input-group .input-radio-container.disabled .option-item .radio-input label {
+  border-color: var(--text-disabled);
+  cursor: no-drop;
+}

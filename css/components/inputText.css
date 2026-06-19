@@ -1,0 +1,95 @@
+/* ===================================
+   INPUT — Text / TextArea / Password / Number
+   Fuente: core/dsk/components/atoms/input/inputTypes/text/TextInput.scss
+   =================================== */
+
+.dsk-input-group .input-component {
+  border-radius: var(--spacing-3);
+  display: flex;
+  width: 100%;
+  background: transparent;
+  max-height: 40px;
+  padding: var(--spacing-4) var(--spacing-5);
+  border: 1px solid var(--border-secondary);
+  font-family: 'Barlow', sans-serif;
+  font-size: 14px;
+  color: var(--text-primary);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.dsk-input-group .input-component::placeholder {
+  color: var(--text-placeholder);
+}
+
+.dsk-input-group .input-component:focus {
+  outline: none;
+  border-color: var(--alliance-primary);
+  box-shadow: 0px 0px 0px 3px rgba(251, 80, 32, 0.08);
+}
+
+.dsk-input-group .input-component:disabled {
+  background: var(--neutral-gray-light);
+  border-color: var(--gray-200);
+  color: var(--text-disabled);
+  cursor: not-allowed;
+}
+
+.dsk-input-group .input-component:disabled::placeholder {
+  color: var(--text-disabled);
+}
+
+/* Tamaños */
+.dsk-input-group .input-component.size-s  { max-height: 32px; padding: var(--spacing-3) var(--spacing-5); }
+.dsk-input-group .input-component.size-m  { max-height: 40px; padding: var(--spacing-4) var(--spacing-5); }
+.dsk-input-group .input-component.size-lg { max-height: 48px; padding: var(--spacing-5) var(--spacing-5); }
+
+/* TextArea */
+.dsk-input-group .text-area-component {
+  border-radius: var(--spacing-3);
+  display: flex;
+  width: 100%;
+  height: 164px;
+  max-height: 140px;
+  resize: none;
+  padding: var(--spacing-3) var(--spacing-5);
+  background: transparent;
+  border: 1px solid var(--border-secondary);
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  color: var(--text-primary);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.dsk-input-group .text-area-component::placeholder { color: var(--text-placeholder); }
+
+.dsk-input-group .text-area-component:focus {
+  outline: none;
+  border-color: var(--alliance-primary);
+  box-shadow: 0px 0px 0px 3px rgba(251, 80, 32, 0.08);
+}
+
+.dsk-input-group .text-area-component:disabled {
+  background: var(--gray-100);
+  border-color: var(--gray-200);
+  color: var(--text-disabled);
+}
+
+/* Padding overrides con íconos */
+.dsk-input-group.size-s.icon-left  .dsk-input-container .input-component { padding-left: calc(var(--spacing-5) + var(--spacing-3) + 20px); }
+.dsk-input-group.size-s.icon-right .dsk-input-container .input-component { padding-right: calc(var(--spacing-5) + var(--spacing-3) + 20px); }
+.dsk-input-group.size-m.icon-left  .dsk-input-container .input-component { padding-left: calc(var(--spacing-5) + var(--spacing-3) + 22px); }
+.dsk-input-group.size-m.icon-right .dsk-input-container .input-component { padding-right: calc(var(--spacing-5) + var(--spacing-3) + 22px); }
+.dsk-input-group.size-lg.icon-left  .dsk-input-container .input-component { padding-left: calc(var(--spacing-5) + var(--spacing-3) + 22px); }
+.dsk-input-group.size-lg.icon-right .dsk-input-container .input-component { padding-right: calc(var(--spacing-5) + var(--spacing-3) + 22px); }
+
+/* Modo oscuro */
+.dsk-input-group.dark .input-component,
+.dsk-input-group.dark .text-area-component {
+  border-color: var(--gray-400);
+  color: var(--dark-text-primary);
+}
+
+.dsk-input-group.dark .input-component:focus,
+.dsk-input-group.dark .text-area-component:focus {
+  border-color: var(--alliance-primary);
+}

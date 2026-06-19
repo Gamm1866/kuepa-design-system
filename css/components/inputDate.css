@@ -1,0 +1,164 @@
+/* ===================================
+   INPUT — Date Picker
+   Fuente: core/dsk/components/atoms/input/inputTypes/date/DateInput.scss
+   =================================== */
+
+.dsk-input-group .date-component {
+  border-radius: var(--spacing-3);
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: var(--spacing-4) var(--spacing-5);
+  border: 1px solid var(--border-secondary);
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.dsk-input-group .date-component.size-s  { height: 32px; padding: var(--spacing-3) var(--spacing-5); }
+.dsk-input-group .date-component.size-m  { height: 40px; padding: var(--spacing-4) var(--spacing-5); }
+.dsk-input-group .date-component.size-lg { height: 48px; padding: var(--spacing-5) var(--spacing-5); }
+
+/* Dropdown calendario */
+.dsk-input-group .date-component .date-picker-component {
+  position: absolute;
+  top: calc(100% + 1px);
+  width: 272px;
+  right: -1px;
+  background: var(--white);
+  border-radius: var(--spacing-3);
+  padding: var(--spacing-5);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  box-shadow: 4px 8px 16px rgba(41, 41, 41, 0.25);
+}
+
+/* Header */
+.dsk-input-group .date-component .date-picker-component .header-calendar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dsk-input-group .date-component .date-picker-component .header-calendar .date-picker {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.dsk-input-group .date-component .date-picker-component .header-calendar .arrows-change-month {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.dsk-input-group .date-component .date-picker-component .header-calendar .arrows-change-month .left-arrow,
+.dsk-input-group .date-component .date-picker-component .header-calendar .arrows-change-month .right-arrow {
+  display: flex;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: color 0.15s;
+}
+
+.dsk-input-group .date-component .date-picker-component .header-calendar .arrows-change-month .left-arrow:hover,
+.dsk-input-group .date-component .date-picker-component .header-calendar .arrows-change-month .right-arrow:hover {
+  color: var(--alliance-primary);
+}
+
+/* Días */
+.dsk-input-group .date-component .date-picker-component .header-days,
+.dsk-input-group .date-component .date-picker-component .days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, calc(100% / 7));
+}
+
+.dsk-input-group .date-component .date-picker-component .header-days .name-container {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding: var(--spacing-2) 0;
+}
+
+.dsk-input-group .date-component .date-picker-component .days-grid .day-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  height: 32px;
+  border-radius: var(--spacing-3);
+  transition: background 0.15s;
+}
+
+.dsk-input-group .date-component .date-picker-component .days-grid .day-container.no-selected:hover {
+  background: var(--gray-100);
+}
+
+.dsk-input-group .date-component .date-picker-component .days-grid .day-container.range {
+  background: var(--orange-50);
+  border-radius: 0;
+}
+
+.dsk-input-group .date-component .date-picker-component .days-grid .day-container.selected {
+  background: var(--alliance-primary);
+  border-radius: var(--spacing-3);
+}
+
+.dsk-input-group .date-component .date-picker-component .days-grid .day-container.selected p {
+  color: var(--white);
+}
+
+.dsk-input-group .date-component .date-picker-component .days-grid .day-container.selected.range {
+  border-radius: var(--spacing-3) 0 0 var(--spacing-3);
+}
+
+.dsk-input-group .date-component .date-picker-component .days-grid .day-container.selected.range-end {
+  border-radius: 0 var(--spacing-3) var(--spacing-3) 0;
+}
+
+/* Badge */
+.dsk-input-group .date-component .date-picker-component .days-grid .day-container .badge {
+  height: 4px;
+  width: 4px;
+  border-radius: 50%;
+  background-color: var(--green-500);
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+/* Grid de años */
+.dsk-input-group .date-component .date-picker-component .years-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+  overflow: auto;
+  max-height: 152px;
+  row-gap: var(--spacing-3);
+}
+
+.dsk-input-group .date-component .date-picker-component .years-grid::-webkit-scrollbar { background: var(--gray-100); width: 4px; border-radius: 16px; }
+.dsk-input-group .date-component .date-picker-component .years-grid::-webkit-scrollbar-thumb { background: var(--black); border-radius: 16px; }
+
+.dsk-input-group .date-component .date-picker-component .years-grid .year-item {
+  cursor: pointer;
+  border-radius: var(--spacing-3);
+  padding: var(--spacing-2) 0;
+  transition: background 0.15s;
+}
+
+.dsk-input-group .date-component .date-picker-component .years-grid .year-item.selected {
+  background: var(--alliance-primary);
+}
+
+.dsk-input-group .date-component .date-picker-component .years-grid .year-item.selected p { color: var(--white); }
+.dsk-input-group .date-component .date-picker-component .years-grid .year-item.no-selected:hover { background: var(--gray-100); }
+
+/* Modo oscuro */
+.dsk-input-group.dark .date-component .date-picker-component {
+  background: var(--dark-background-primary);
+}
